@@ -23,7 +23,15 @@ function handleEditSubmit(editedData){
 
   if(isEditing) {
     return  (
-      <div className="color-card">
+      
+      <div 
+      
+        className="color-card"
+        style={{
+          background: color.hex,
+          color: color.contrastText,
+        }}
+      >
         <ColorForm 
           onSubmitColor={handleEditSubmit}
           initialData={color}  
