@@ -19,4 +19,4 @@ export default function ColorInput({ id, defaultValue}) {
             <input type="color" value={inputValue} onChange={handleInputValue}/>
             </>
     );
-}
+}console.log(ColorInput)

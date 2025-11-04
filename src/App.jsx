@@ -10,9 +10,12 @@ function App() {
   function handleSubmitColor(colorData) {
     const newColor = {
       id: crypto.randomUUID(),
-      ...colorData
+      ...colorData,
     };
     setColors([...colors, newColor]);
+  }
+   function handleDeleteColor(colorId) {  
+    setColors(colors.filter((color) => color.id !== colorId));
   }
 
   return (
@@ -20,10 +23,14 @@ function App() {
       <h1>Theme Creator</h1>
       <ColorForm onSubmitColor={handleSubmitColor} />
       {colors.map((color) => {
-        return <Color key={color.id} color={color} />;
+        return <Color key={color.id} color={color} onDeleteColor={handleDeleteColor}  />;
       })}
+     
     </>
   );
 }
 
+
 export default App;
+
+
