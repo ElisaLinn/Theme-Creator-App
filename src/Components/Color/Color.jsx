@@ -1,5 +1,6 @@
 import "./Color.css";
 import ColorForm from "./ColorForm.jsx";
+import CopyButton from "./CopyButton.jsx";
 import "./DeleteButton.css";
 import DeleteButton from "./DeleteButton.jsx";
 import { useState } from "react";
@@ -53,7 +54,7 @@ function handleEditSubmit(editedData){
       }}
     >
       <h3 className="color-card-headline">{color.hex}</h3>
-      <button></button>
+      <CopyButton textToCopy={color.hex} />
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
       <DeleteButton onDelete={onDeleteColor} colorId={color.id}/>
