@@ -53,6 +53,7 @@ function handleEditSubmit(editedData){
       }}
     >
       <h3 className="color-card-headline">{color.hex}</h3>
+      <button></button>
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
       <DeleteButton onDelete={onDeleteColor} colorId={color.id}/>
