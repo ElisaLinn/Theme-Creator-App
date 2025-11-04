@@ -21,7 +21,7 @@ function App() {
   }
 
 
-  function handleEditColor(colorId, newColorData) {  // ← Das fehlt!
+  function handleEditColor(colorId, newColorData) {  
     setColors(colors.map(color => 
       color.id === colorId 
         ? { ...color, ...newColorData }
