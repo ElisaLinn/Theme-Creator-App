@@ -3,7 +3,7 @@ import ColorForm from "./ColorForm.jsx";
 import CopyButton from "./CopyButton.jsx";
 import "./DeleteButton.css";
 import DeleteButton from "./DeleteButton.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
 const [isEditing, setIsEditing] = useState(false);
@@ -20,6 +20,23 @@ function handleEditSubmit(editedData){
   function handleCancel() {
     setIsEditing(false);
   }
+
+  useEffect(()=>{
+    async function startFetching(){
+      try{
+      const respone = await fetch("https://www.aremycolorsaccessible.com/api/are-they");
+      const contrast = await respone.json();
+      console.log(contrast)
+      setIsEditing(contrast);}
+      catch (error) {
+        console.error("Fetch Error", error)
+      }
+    
+      )
+    }
+    startFetching();
+  }, [color.hex, color.contrastText]);
+   
 
 
   if(isEditing) {
