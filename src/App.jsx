@@ -18,12 +18,24 @@ function App() {
     setColors(colors.filter((color) => color.id !== colorId));
   }
 
+
+  function handleEditColor(colorId, newColorData) {  // ← Das fehlt!
+    setColors(colors.map(color => 
+      color.id === colorId 
+        ? { ...color, ...newColorData }
+        : color
+    ));
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
       <ColorForm onSubmitColor={handleSubmitColor} />
       {colors.map((color) => {
-        return <Color key={color.id} color={color} onDeleteColor={handleDeleteColor}  />;
+        return <Color key={color.id} color={color} 
+        onDeleteColor={handleDeleteColor}  
+        onEditColor={handleEditColor}
+        />;
       })}
      
     </>
