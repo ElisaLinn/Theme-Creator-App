@@ -1,13 +1,13 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
-import ColorForm from "./Components/Color/ColorForm";
+import ColorForm from "./Components/Color/ColorForm/ColorForm";
 import { useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
 function App() {
   const [colors, setColors] = useLocalStorageState("card-theme-colors", {
-    defaultValue: initialColors
+    defaultValue: initialColors,
   });
 
   function handleSubmitColor(colorData) {
@@ -17,17 +17,16 @@ function App() {
     };
     setColors([newColor, ...colors]);
   }
-   function handleDeleteColor(colorId) {  
+  function handleDeleteColor(colorId) {
     setColors(colors.filter((color) => color.id !== colorId));
   }
 
-
-  function handleEditColor(colorId, newColorData) {  
-    setColors(colors.map(color => 
-      color.id === colorId 
-        ? { ...color, ...newColorData }
-        : color
-    ));
+  function handleEditColor(colorId, newColorData) {
+    setColors(
+      colors.map((color) =>
+        color.id === colorId ? { ...color, ...newColorData } : color
+      )
+    );
   }
 
   return (
@@ -35,17 +34,17 @@ function App() {
       <h1>Theme Creator</h1>
       <ColorForm onSubmitColor={handleSubmitColor} />
       {colors.map((color) => {
-        return <Color key={color.id} color={color} 
-        onDeleteColor={handleDeleteColor}  
-        onEditColor={handleEditColor}
-        />;
+        return (
+          <Color
+            key={color.id}
+            color={color}
+            onDeleteColor={handleDeleteColor}
+            onEditColor={handleEditColor}
+          />
+        );
       })}
-     
     </>
   );
 }
 
-
 export default App;
-
-

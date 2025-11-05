@@ -1,9 +1,8 @@
 import "./Color.css";
-import ColorForm from "./ColorForm.jsx";
-import CopyButton from "./CopyButton.jsx";
-import "./DeleteButton.css";
-import DeleteButton from "./DeleteButton.jsx";
-import ContrastChecker from "./ContrastChecker.jsx";
+import ColorForm from "./ColorForm/ColorForm.jsx";
+import CopyButton from "./ColorCopyButton/CopyButton.jsx";
+import DeleteButton from "./ColorDeleteButton/DeleteButton.jsx";
+import ContrastChecker from "./ColorContrastChecker/ContrastChecker.jsx";
 import { useState } from "react";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
@@ -48,9 +47,9 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
       <div>
         <div className="color-card">
           <div className="color-card__info">
-            <div className = "color-card__hex__flex">
-            <h3 className="color-card__hex">{color.hex}</h3>
-            <CopyButton textToCopy={color.hex} />
+            <div className="color-card__hex__flex">
+              <h3 className="color-card__hex">{color.hex}</h3>
+              <CopyButton textToCopy={color.hex} />
             </div>
             <h4>{color.role}</h4>
             <p>contrast: {color.contrastText}</p>
