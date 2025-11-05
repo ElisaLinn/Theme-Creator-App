@@ -15,7 +15,7 @@ function App() {
       id: crypto.randomUUID(),
       ...colorData,
     };
-    setColors([...colors, newColor]);
+    setColors([newColor, ...colors]);
   }
    function handleDeleteColor(colorId) {  
     setColors(colors.filter((color) => color.id !== colorId));
