@@ -3,47 +3,28 @@ import ColorForm from "./ColorForm.jsx";
 import CopyButton from "./CopyButton.jsx";
 import "./DeleteButton.css";
 import DeleteButton from "./DeleteButton.jsx";
-import { useEffect, useState } from "react";
+import ContrastChecker from "./Contrast.jsx";
+import { useState } from "react";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
-const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
-function handleEditing() {
-  setIsEditing(true);
-}
+  function handleEditing() {
+    setIsEditing(true);
+  }
 
-function handleEditSubmit(editedData){
-  onEditColor(color.id, editedData);
-  setIsEditing(false);
-}
+  function handleEditSubmit(editedData){
+    onEditColor(color.id, editedData);
+    setIsEditing(false);
+  }
 
   function handleCancel() {
     setIsEditing(false);
   }
 
-  useEffect(()=>{
-    async function startFetching(){
-      try{
-      const respone = await fetch("https://www.aremycolorsaccessible.com/api/are-they");
-      const contrast = await respone.json();
-      console.log(contrast)
-      setIsEditing(contrast);}
-      catch (error) {
-        console.error("Fetch Error", error)
-      }
-    
-      )
-    }
-    startFetching();
-  }, [color.hex, color.contrastText]);
-   
-
-
   if(isEditing) {
     return  (
-      
       <div 
-      
         className="color-card"
         style={{
           background: color.hex,
@@ -74,8 +55,14 @@ function handleEditSubmit(editedData){
       <CopyButton textToCopy={color.hex} />
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
+      
+      <ContrastChecker 
+        Hexvalue={color.hex}
+        ColorTextValue={color.contrastText}
+      />
+      
       <DeleteButton onDelete={onDeleteColor} colorId={color.id}/>
-    <button onClick={handleEditing}>Edit</button>
+      <button onClick={handleEditing}>Edit</button>
     </div>
   );
 }
