@@ -6,6 +6,7 @@ import ContrastChecker from "./ColorContrastChecker/ContrastChecker.jsx";
 import { useState } from "react";
 import "./ColorCopyButton/CopyButton.css";
 
+
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [isEditing, setIsEditing] = useState(false);
 
