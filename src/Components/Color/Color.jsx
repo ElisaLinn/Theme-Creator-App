@@ -1,10 +1,9 @@
 import "./Color.css";
-import ColorForm from "./ColorForm/ColorForm.jsx";
-import CopyButton from "./ColorCopyButton/CopyButton.jsx";
-import DeleteButton from "./ColorDeleteButton/DeleteButton.jsx";
-import ContrastChecker from "./ColorContrastChecker/ContrastChecker.jsx";
+import ColorForm from "../ColorForm/ColorForm.jsx";
+import CopyButton from "../CopyButton/CopyButton.jsx";
+import DeleteButton from "../DeleteButtonColor/DeleteButton.jsx";
+import ContrastChecker from "../ContrastChecker/ContrastChecker.jsx";
 import { useState } from "react";
-import "./ColorCopyButton/CopyButton.css";
 
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
@@ -63,7 +62,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
             </div>
             <div>
               <DeleteButton onDelete={onDeleteColor} colorId={color.id} />
-              <button className="color-card-edit-button" onClick={handleEditing}>Edit</button>
+              <button onClick = {handleEditing} >Edit</button>
             </div>
           </div>
           <div
