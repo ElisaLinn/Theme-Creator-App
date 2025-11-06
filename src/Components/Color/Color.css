@@ -45,6 +45,7 @@
   font-weight: bold;
   color: #333;
   display: flex;
+  justify-content: space-around;
 }
 
 .colorcard__value {
@@ -56,3 +57,13 @@
   border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
   }
+
+  .color-card-edit-button {
+    border-radius: 25px;
+    margin-left: 1rem;
+}
+
+color-card-edit-button :hover{
+    background: darkgrey;
+    color: white;
+}

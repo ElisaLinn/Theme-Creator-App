@@ -4,6 +4,7 @@ import CopyButton from "./ColorCopyButton/CopyButton.jsx";
 import DeleteButton from "./ColorDeleteButton/DeleteButton.jsx";
 import ContrastChecker from "./ColorContrastChecker/ContrastChecker.jsx";
 import { useState } from "react";
+import "./ColorCopyButton/CopyButton.css";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -61,7 +62,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
             </div>
             <div>
               <DeleteButton onDelete={onDeleteColor} colorId={color.id} />
-              <button onClick={handleEditing}>Edit</button>
+              <button className="color-card-edit-button" onClick={handleEditing}>Edit</button>
             </div>
           </div>
           <div

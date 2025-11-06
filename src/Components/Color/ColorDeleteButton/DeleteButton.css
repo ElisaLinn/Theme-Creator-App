@@ -1,6 +1,8 @@
-.button-show {
-  display: block;
+.delete-button {
+    border-radius: 25px;
+    margin-left: 1rem;
 }
-.button-hidden {
-  display: none;
+.delete-button:hover{
+    background: darkgrey;
+    color: white;
 }

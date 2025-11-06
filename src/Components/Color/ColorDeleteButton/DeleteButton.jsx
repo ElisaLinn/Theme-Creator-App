@@ -1,24 +1,25 @@
 import { useState } from "react";
+import "./DeleteButton.css";
 
     export default function DeleteButton({ onDelete, colorId }) {
-   const [showConfirmation, setShowConfirmation] = useState(false);
+   const [deleteButton, setDeleteButton] = useState(false);
 
   function handleFirstClick() {
-    setShowConfirmation(true);
+    setDeleteButton(true);
   }
 
   function handleCancel() {
-    setShowConfirmation(false); 
+    setDeleteButton(false); 
   }
 
   function handleConfirmDelete() {
     onDelete(colorId);  
-    setShowConfirmation(false);  
+    setDeleteButton(false);  
   }
 
-  if (!showConfirmation) {
+  if (!deleteButton) {
     return (
-      <button onClick={handleFirstClick}>
+      <button className="delete-button" onClick={handleFirstClick}>
         Delete
       </button>
     );
@@ -27,7 +28,7 @@ import { useState } from "react";
  
   return (
     <>
-    <div className="">
+    <div className="delete-button">
         <p>Really Delete?</p>
     <div className="">
       <button onClick={handleCancel}>

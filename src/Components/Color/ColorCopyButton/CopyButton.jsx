@@ -20,7 +20,7 @@ export default function CopyButton({ textToCopy }) {
 
 return (
 <>
-<button onClick={handleCopy}>
+<button className="copy-button" onClick={handleCopy}>
 {copied ? "Succsesfully Copied" : "Copy"}
 </button>
 </>
