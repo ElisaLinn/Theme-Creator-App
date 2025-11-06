@@ -1,9 +1,9 @@
 import "./Color.css";
 import ColorForm from "./ColorForm.jsx";
-import CopyButton from "./CopyButton.jsx";
+import CopyButton from "./ColorForm/ColorCopyButton/CopyButton.jsx";
 import "./DeleteButton.css";
-import DeleteButton from "./DeleteButton.jsx";
-import ContrastChecker from "./ContrastChecker.jsx";
+import DeleteButton from "./ColorDeleteButton/DeleteButton.jsx";
+import ContrastChecker from "./ColorContrastChecker/ContrastChecker.jsx";
 import { useState } from "react";
 
 export default function Color({ color, onDeleteColor, onEditColor }) {
