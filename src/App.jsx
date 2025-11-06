@@ -1,6 +1,8 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
+import ColorForm from "./Components/Color/ColorForm/ColorForm";
+import { useState } from "react";
 import ColorForm from "./Components/ColorForm/ColorForm";
 
 import useLocalStorageState from "use-local-storage-state";
