@@ -1,7 +1,6 @@
 import "./Color.css";
-import ColorForm from "./ColorForm.jsx";
-import CopyButton from "./ColorForm/ColorCopyButton/CopyButton.jsx";
-import "./DeleteButton.css";
+import ColorForm from "./ColorForm/ColorForm.jsx";
+import CopyButton from "./ColorCopyButton/CopyButton.jsx";
 import DeleteButton from "./ColorDeleteButton/DeleteButton.jsx";
 import ContrastChecker from "./ColorContrastChecker/ContrastChecker.jsx";
 import { useState } from "react";
@@ -9,13 +8,13 @@ import { useState } from "react";
 export default function Color({ color, onDeleteColor, onEditColor }) {
   const [isEditing, setIsEditing] = useState(false);
 
-  function handleEditing() {
+  function handleEditing() {                   // ändert state von false zu true => Ansicht wird zu Editing gewechselt
     setIsEditing(true);
   }
 
-  function handleEditSubmit(editedData) {
-    onEditColor(color.id, editedData);
-    setIsEditing(false);
+  function handleEditSubmit(editedData) {                               //Veränderung wird gespeichert editedData sind die data aus ColorForm
+    onEditColor(color.id, editedData);                                 // ruft on EditColor aus App auf, übergibt color.id und die neuen Daten
+    setIsEditing(false);                                               
   }
 
   function handleCancel() {
@@ -63,7 +62,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
             <div>
               <DeleteButton onDelete={onDeleteColor} colorId={color.id} />
               <button onClick={handleEditing}>Edit</button>
-            </div>
+           </div>
           </div>
           <div
             className="color-card__display"

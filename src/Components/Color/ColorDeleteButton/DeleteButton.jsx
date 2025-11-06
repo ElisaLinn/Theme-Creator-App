@@ -1,22 +1,22 @@
 import { useState } from "react";
 
     export default function DeleteButton({ onDelete, colorId }) {
-   const [showConfirmation, setShowConfirmation] = useState(false);
+   const [deleteButton, setDeleteButton] = useState(false);
 
-  function handleFirstClick() {
-    setShowConfirmation(true);
+  function handleFirstClick() {         
+    setDeleteButton(true);
   }
 
   function handleCancel() {
-    setShowConfirmation(false); 
+    setDeleteButton(false); 
   }
 
   function handleConfirmDelete() {
     onDelete(colorId);  
-    setShowConfirmation(false);  
+    setDeleteButton(false);  
   }
 
-  if (!showConfirmation) {
+  if (!deleteButton) {
     return (
       <button onClick={handleFirstClick}>
         Delete

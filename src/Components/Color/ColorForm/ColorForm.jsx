@@ -3,7 +3,7 @@ submit event einbauen (onSubmit)
 function handleSubmit festlegen (new FormData object) damit die Daten rausgezogen werden
 return festlegen Html struktur ertsellen*/
 
-import ColorInput from "./ColorInput";
+import ColorInput from "../ColorInput/ColorInput";
 
 
 export default function ColorForm({
